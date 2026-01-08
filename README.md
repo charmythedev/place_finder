@@ -1,4 +1,4 @@
-# place_finder
+# place finder
 
 A **Flask** web application that integrates with **Google’s Places API** to search and display information about nearby places.:contentReference[oaicite:1]{index=1}
 
@@ -103,4 +103,4 @@ Contributions are welcome! If you add features, fix bugs, or improve the UI, ple
 
 📄 License
 
-Specify the license under which your project is released (e.g., MIT, GPL, etc.).
+MIT
