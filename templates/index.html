@@ -1,0 +1,66 @@
+{% include "header.html" %}
+<!-- Header-->
+<header class="bg-primary bg-gradient text-white">
+    <div class="container px-4 text-center">
+        <h1 class="fw-bolder">Welcome to the site</h1>
+        <p class="lead">A list of places from wherever</p>
+        <!--        <a class="btn btn-lg btn-light" href="#about">Check</a>-->
+    </div>
+</header>
+<!-- About section-->
+<section id="about">
+    <div class="container px-4">
+        <div class="row gx-4 justify-content-center">
+            <div class="col-lg-8">
+                <h2>About this page</h2>
+                <p class="lead">
+                    Just search for a place below and it will return a list of places!
+                </p>
+
+                <form action="{{ url_for('index') }}" method="GET" class="mb-4">
+                    <input type="text" name="query" placeholder="sushi in Brooklyn">
+                    <input type="submit" value="search">
+                </form>
+
+                <hr class="my-4">
+            </div>
+        </div>
+    </div>
+</section>
+            <div class="container px-4">
+                <div class="row gx-4 justify-content-center">
+                    <div class="col-lg-8">
+                        {% for place in results %}
+
+                        <div class="place-card">
+
+
+                            <div style="display: flex; align-items: baseline; gap: 8px;">
+                                <h4 style="margin: 0;">
+                                    <a href="{{ place.website }}" class="hidden_link">
+                                        {{ place.name }}
+                                    </a>
+                                </h4>
+                                {% if place.rating %}
+                                <span style="font-size: 0.9rem; color: #888;">
+                         {{ place.rating }} &#x2606;
+                    </span>
+                            </div>
+                            {% else %}
+                            {% endif %}
+                            <p>{{ place.address }}</p>
+
+                            <img src="{{ place.photo_url }}" alt="{{ place.name }} business photo"/>
+                            <hr>
+
+                        </div>
+
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+</section>
+
+
+<!-- Footer-->
+{% include "footer.html" %}
